@@ -2,16 +2,34 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-let buttons = $('.saveBtn');
+  let buttons = $(".saveBtn");
+  let dayDisplay = $("#currentDay");
 
+  $(dayDisplay).append(dayjs().format("MMMM DD, YYYY"));
 
+  buttons.on("click", function (event) {
+    let time = $(this).parent().attr("id");
+    let description = $(this).siblings(".description").val();
+    console.log(time, description);
+    localStorage.setItem(time, description);
+  });
 
-buttons.on('click', function (event) {
-  let parent = $(this).parent().attr('id');
-  let description = $(this).siblings(".description").val();
-console.log(parent, description);
-localStorage.setItem(parent, description);
-});
+  $(".time-block").each(function () {
+    $(this).removeClass("future");
+    $(this).removeClass("past");
+    $(this).removeClass("present");
+    let hour = parseInt($(this).attr("id").split("-")[1]);
+
+    if (hour > dayjs().hour()) {
+      $(this).addClass("future");
+    } else if (hour === dayjs().hour()) {
+      $(this).addClass("present");
+    } else {
+      $(this).addClass("past");
+    }
+  });
+
+  $("#hour-9").children(".description").val("buy pokemon");
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -20,7 +38,6 @@ localStorage.setItem(parent, description);
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
