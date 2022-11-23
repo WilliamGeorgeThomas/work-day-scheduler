@@ -15,9 +15,6 @@ $(function () {
   });
 
   $(".time-block").each(function () {
-    $(this).removeClass("future");
-    $(this).removeClass("past");
-    $(this).removeClass("present");
     let hour = parseInt($(this).attr("id").split("-")[1]);
 
     if (hour > dayjs().hour()) {
@@ -29,7 +26,16 @@ $(function () {
     }
   });
 
-  $("#hour-9").children(".description").val("buy pokemon");
+  $("#hour-9").children(".description").val(localStorage.getItem("hour-9"));
+  $("#hour-10").children(".description").val(localStorage.getItem("hour-10"));
+  $("#hour-11").children(".description").val(localStorage.getItem("hour-11"));
+  $("#hour-12").children(".description").val(localStorage.getItem("hour-12"));
+  $("#hour-1").children(".description").val(localStorage.getItem("hour-1"));
+  $("#hour-2").children(".description").val(localStorage.getItem("hour-2"));
+  $("#hour-3").children(".description").val(localStorage.getItem("hour-3"));
+  $("#hour-4").children(".description").val(localStorage.getItem("hour-4"));
+  $("#hour-5").children(".description").val(localStorage.getItem("hour-5"));
+  
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
