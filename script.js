@@ -10,7 +10,7 @@ $(function () {
   buttons.on("click", function (event) {
     let time = $(this).parent().attr("id");
     let description = $(this).siblings(".description").val();
-    console.log(time, description);
+    // console.log(time, description);
     localStorage.setItem(time, description);
   });
 
@@ -35,7 +35,6 @@ $(function () {
   $("#hour-3").children(".description").val(localStorage.getItem("hour-3"));
   $("#hour-4").children(".description").val(localStorage.getItem("hour-4"));
   $("#hour-5").children(".description").val(localStorage.getItem("hour-5"));
-  
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -55,5 +54,4 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
 });
