@@ -14,7 +14,7 @@ The assignment involved fishing existing code using jQuery.  I needed to refer o
 
 # Screenshot
 
-![screenshot of work day scheduler](./assets/xxxxxxxxxxxxxxxxxxxxxx)
+![screenshot of work day scheduler](./_C__Users_Will_code_work-day-scheduler_index.html.png)
 
 # Credits
 
